@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 export const HelloWorldController = (_req: Request, res: Response) => {
 	try {
-		res.status(200).json({ message: 'Hello World! v2' })
+		res.status(200).json({ message: 'Hello World!' })
 	} catch (error: unknown) {
 		const errorMessage = 'Unexpected error occurred'
 		if (error instanceof Error) {
