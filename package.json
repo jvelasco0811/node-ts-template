@@ -10,7 +10,7 @@
 		"build:run": "tsc",
 		"start": "node dist/src/app/index.js",
 		"test": "jest",
-		"lint": "eslint .",
+		"lint": "eslint --fix .",
 		"prettier": "prettier --write .",
 		"test:watch": "jest --watchAll",
 		"prepare": "husky",
@@ -58,8 +58,8 @@
 	},
 	"lint-staged": {
 		"{src,tests}/**/*.ts": [
-			"pnpm lint",
-			"pnpm prettier"
+			"pnpm prettier",
+			"pnpm lint"
 		]
 	}
 }
