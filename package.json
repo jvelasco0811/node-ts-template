@@ -9,7 +9,7 @@
 		"build:clean": "rm -rf dist; exit 0",
 		"build:run": "tsc",
 		"start": "cross-env NODE_ENV=production node dist/src/app/index.js",
-		"test:unit": "cross-env NODE_ENV=test jest",
+		"test:unit": "cross-env NODE_ENV=test jest --coverage",
 		"test:watch": "cross-env NODE_ENV=test jest --watchAll",
 		"lint": "eslint --fix .",
 		"prettier": "prettier --write .",
