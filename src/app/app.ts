@@ -1,8 +1,8 @@
-import express from 'express'
+import express, { Express } from 'express'
 import helloWorld from './routes/helloWorld.route'
 import cors from 'cors'
 
-const app = express()
+const app: Express = express()
 app.disable('x-powered-by')
 app.use(express.json())
 // CORS configuration
