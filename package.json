@@ -43,6 +43,7 @@
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
+		"eslint-plugin-jest": "^28.6.0",
 		"express": "4.19.2"
 	}
 }

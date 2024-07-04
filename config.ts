@@ -4,10 +4,10 @@ dotenv.config()
 interface Config {
 	apiBaseUrl: string
 	environment: 'development' | 'production' | 'staging'
-	mongoUri: any
-	mongoDatabase: any
-	mongoCollection: any
-	accessEndpoint: any
+	mongoUri: string | undefined
+	mongoDatabase: string | undefined
+	mongoCollection: string | undefined
+	accessEndpoint: string | undefined
 }
 
 const developmentConfig: Config = {
