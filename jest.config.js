@@ -3,7 +3,7 @@ module.exports = {
 	transform: {
 		'\\.ts$': '@swc/jest',
 	},
-	collectCoverage: false,
+	// collectCoverage: true,
 	coverageDirectory: 'coverage',
 	coverageThreshold: {
 		global: {

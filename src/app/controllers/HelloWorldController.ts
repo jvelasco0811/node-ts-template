@@ -7,8 +7,8 @@ export const HelloWorldController = (_req: Request, res: Response) => {
 		const errorMessage = 'Unexpected error occurred'
 		if (error instanceof Error) {
 			res.status(500).json({ error: error.message })
+		} else {
+			res.status(500).json({ error: errorMessage, details: error })
 		}
-
-		res.status(500).json({ error: errorMessage, details: error })
 	}
 }
