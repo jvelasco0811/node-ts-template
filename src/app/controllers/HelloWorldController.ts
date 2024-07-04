@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-export const HelloWorldController = (req: Request, res: Response) => {
+export const HelloWorldController = (_req: Request, res: Response) => {
 	try {
 		res.status(200).json({ message: 'Hello World!' })
 	} catch (error: unknown) {
