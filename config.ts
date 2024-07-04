@@ -3,7 +3,7 @@ dotenv.config()
 
 interface Config {
 	apiBaseUrl: string
-	environment: 'development' | 'production' | 'staging'
+	environment: 'development' | 'production' | 'staging' | 'test'
 	mongoUri: string | undefined
 	mongoDatabase: string | undefined
 	mongoCollection: string | undefined
@@ -37,6 +37,15 @@ const stagingConfig: Config = {
 	accessEndpoint: process.env.ACCESS_ENDPOINT,
 }
 
+const testConfig: Config = {
+	apiBaseUrl: 'http://localhost:3002',
+	environment: 'test',
+	mongoUri: process.env.MONGO_URI,
+	mongoDatabase: process.env.MONGO_DATABASE,
+	mongoCollection: process.env.MONGO_COLLECTION,
+	accessEndpoint: process.env.ACCESS_ENDPOINT,
+}
+
 const getConfig = (): Config => {
 	const env = process.env.NODE_ENV || 'development'
 
@@ -45,6 +54,8 @@ const getConfig = (): Config => {
 			return productionConfig
 		case 'staging':
 			return stagingConfig
+		case 'test':
+			return testConfig
 		default:
 			return developmentConfig
 	}
