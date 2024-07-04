@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "ts-node-dev --respawn --transpile-only src/app/index.ts",
-		"build": "tsc",
+		"build": "pnpm run build:clean && pnpm run build:run",
+		"build:clean": "rm -rf dist",
+		"build:run": "tsc",
 		"start": "node dist/src/app/index.js",
 		"test": "jest",
 		"lint": "eslint .",
