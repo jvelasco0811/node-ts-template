@@ -48,6 +48,13 @@
 		"eslint-plugin-jest": "^28.6.0",
 		"express": "4.19.2",
 		"express-rate-limit": "^7.3.1",
-		"helmet": "^7.1.0"
+		"helmet": "^7.1.0",
+		"lint-staged": "^15.2.7"
+	},
+	"lint-staged": {
+		"{src,tests}/**/*.ts": [
+			"pnpm lint",
+			"pnpm build"
+		]
 	}
 }
