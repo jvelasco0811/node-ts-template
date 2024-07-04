@@ -17,7 +17,7 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use('/api/v1/hello', helloWorld)
+app.use('/api/v1/hello/v2', helloWorld)
 
 process.on('uncaughtException', (error) => {
 	console.error('Uncaught Exception:', error)
