@@ -1,4 +1,4 @@
-export class CustomError extends Error {
+class CustomError extends Error {
 	constructor(
 		readonly type: string,
 		readonly message: string,
@@ -9,3 +9,14 @@ export class CustomError extends Error {
 		Error.captureStackTrace(this)
 	}
 }
+export class BadRequestError extends CustomError {
+	constructor(message = 'Bad request') {
+		super('bad_request', message, 400)
+	}
+}
+class NotFoundError extends CustomError {
+	constructor(message = 'Resource not found') {
+		super('not_found', message, 404)
+	}
+}
+export { NotFoundError }
