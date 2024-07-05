@@ -1,11 +1,11 @@
-import express, { Express, Request, Response, NextFunction } from 'express'
+import express, { Express } from 'express'
 import helloWorld from './routes/helloWorld.route'
 import cors from 'cors'
 import helmet from 'helmet'
 import rateLimiter from '../app/middlewares/RateLimiter'
-import { logger } from '../Context/Shared/utils/logger'
 import unknownEndpoint from './middlewares/unknownEndpoint'
 import requestLogger from './middlewares/requestLogger'
+import errorHandler from './middlewares/errorHandler'
 const app: Express = express()
 
 app.use(rateLimiter)
@@ -22,16 +22,6 @@ app.use(express.json())
 app.use('/api/v1/hello', helloWorld)
 app.use(unknownEndpoint)
 
-app.use((error: Error, _req: Request, res: Response, next: NextFunction) => {
-	logger.error(
-		`Internal_server_error: ${error.name} - message: ${error.message}`,
-		`Stack: ${error.stack}`,
-	)
-	res.status(500).send({
-		type: 'internal_server_error',
-		message: 'Something went wrong! Please try again later.',
-	})
-	next()
-})
+app.use(errorHandler)
 
 export default app
