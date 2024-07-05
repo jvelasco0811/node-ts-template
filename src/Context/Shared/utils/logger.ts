@@ -2,14 +2,13 @@ import winston from 'winston'
 export const logger = winston.createLogger({
 	level: 'info',
 	format: winston.format.combine(
-		winston.format.prettyPrint(),
-		winston.format.errors({ stack: true }),
-		winston.format.splat(),
-		winston.format.colorize(),
-		winston.format.simple(),
+		winston.format.timestamp(),
+		winston.format.printf(({ level, message, timestamp }) => {
+			return `[${timestamp}] [${level}]: ${message}`
+		}),
 	),
 	transports: [
 		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'combined.log' }),
+		new winston.transports.File({ filename: 'logs/combined.log' }),
 	],
 })
