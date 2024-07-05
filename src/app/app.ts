@@ -37,15 +37,4 @@ app.use((error: Error, _req: Request, res: Response, next: NextFunction) => {
 	next()
 })
 
-process.on('uncaughtException', (error: Error) => {
-	logger.error(
-		`Caught exception: ${error.name} - message: ${error.message}`,
-		`Stack: ${error.stack}`,
-	)
-})
-
-process.on('unhandledRejection', (reason: string, p: Promise<unknown>) => {
-	logger.error('Unhandled Rejection at:', p, 'reason:', reason)
-})
-
 export default app
