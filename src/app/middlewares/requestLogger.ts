@@ -7,7 +7,7 @@ const requestLogger = (req: Request, res: Response, next: NextFunction) => {
 
 	onFinished(res, (_err, res) => {
 		const duration = Date.now() - start
-		const contentLength = (res.getHeader('Content-Length') || 0) as string
+		const contentLength = (res.getHeader('Content-Length') || 0).toString()
 		const statusCode = res.statusCode
 		const logMessage = `${requestDetails} - ${statusCode} - ${contentLength} bytes - ${duration} ms`
 		logger.info(logMessage)
