@@ -1,5 +1,5 @@
 import app from './app'
-import { logger } from './utils/logger'
+import { logger } from '../Context/Shared/utils/logger'
 
 const PORT = 5000
 

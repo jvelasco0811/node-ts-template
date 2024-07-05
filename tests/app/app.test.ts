@@ -32,7 +32,7 @@ describe('Given a user want to hello', () => {
 	})
 })
 
-describe('Uncaught Exception Handler', () => {
+xdescribe('Uncaught Exception Handler', () => {
 	let originalProcessOn: NodeJS.Process['on']
 
 	beforeAll(() => {

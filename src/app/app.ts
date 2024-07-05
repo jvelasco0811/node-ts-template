@@ -3,7 +3,7 @@ import helloWorld from './routes/helloWorld.route'
 import cors from 'cors'
 import helmet from 'helmet'
 import rateLimiter from '../app/middlewares/RateLimiter'
-import { logger } from './utils/logger'
+import { logger } from '../Context/Shared/utils/logger'
 
 const app: Express = express()
 
