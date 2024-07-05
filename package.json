@@ -4,11 +4,11 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development ts-node-dev --respawn --transpile-only src/app/index.ts",
+		"dev": "cross-env NODE_ENV=development ts-node-dev --respawn --transpile-only src/app/server.ts",
 		"build": "pnpm run build:clean && pnpm run build:run",
 		"build:clean": "rm -rf dist; exit 0",
 		"build:run": "tsc",
-		"start": "cross-env NODE_ENV=production node dist/src/app/index.js",
+		"start": "cross-env NODE_ENV=production node dist/src/app/server.js",
 		"test:unit": "cross-env NODE_ENV=test jest --coverage",
 		"test:watch": "cross-env NODE_ENV=test jest --watchAll",
 		"lint": "eslint --fix .",
