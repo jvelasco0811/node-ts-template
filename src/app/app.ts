@@ -25,8 +25,11 @@ app.use((req: Request, res: Response) => {
 	res.status(404).send({ error: 'oops not found' })
 })
 
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-	logger.error(err)
+app.use((error: Error, _req: Request, res: Response, next: NextFunction) => {
+	logger.error(
+		`Internal_server_error: ${error.name} - message: ${error.message}`,
+		`Stack: ${error.stack}`,
+	)
 	res.status(500).send({
 		type: 'internal_server_error',
 		message: 'Something went wrong! Please try again later.',
@@ -36,8 +39,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 process.on('uncaughtException', (error: Error) => {
 	logger.error(
-		`Caught exception: ${error.name} - ${error.message}`,
-		`Exception origin: ${error.stack}`,
+		`Caught exception: ${error.name} - message: ${error.message}`,
+		`Stack: ${error.stack}`,
 	)
 })
 
